@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package text2image;
+
+service TextToImageService {
+  rpc GenerateImage (ImageRequest) returns (ImageResponse);
+}
+
+message ImageRequest {
+  string text = 1;
+  string context = 2;
+  string negative_prompt = 3; // Negative prompt to exclude unwanted elements
+}
+
+message ImageResponse {
+  string prompt = 1;
+  string image_base64 = 2;
+  string status = 3 [deprecated = true]; // Deprecated in favor of status_code
+  int32 status_code = 4; // Numeric status code (e.g., 200, 400, 500)
+  string response_json = 5; // JSON string containing response details
+}

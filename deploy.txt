@@ -1,0 +1,9 @@
+#!/bin/bash
+
+# Build Docker image
+docker build -t text2image-app:latest .
+
+# Run Docker container
+docker run -d -p 7860:7860 -p 50051:50051 --name text2image-container text2image-app:latest
+
+echo "Application deployed. Access Gradio UI at http://localhost:7860 and gRPC at localhost:50051"

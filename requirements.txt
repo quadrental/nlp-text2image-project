@@ -1,0 +1,9 @@
+fastapi
+uvicorn
+gradio
+diffusers
+torch
+transformers
+Pillow
+grpcio
+grpcio-tools
